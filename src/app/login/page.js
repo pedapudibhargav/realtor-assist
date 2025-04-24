@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 export default function page() {
     const [erros, setErros] = React.useState([]);
+    const [isLoading, setIsLoading] = React.useState(false);
     const router = useRouter();
     const BE_URI = process.env.NEXT_PUBLIC_BE_URI;
 
@@ -29,6 +30,7 @@ export default function page() {
             return;
         const email = e.target.email.value;
         const password = e.target.password.value;
+        setIsLoading(true);
         fetch(BE_URI + '/api/auth/login', {
             method: 'POST',
             headers: {
@@ -43,14 +45,19 @@ export default function page() {
                     setErros([data.error]);
                 } else {
                     console.log('Login successful:', data, data.session.access_token);
-                    document.cookie = `access_token=${data.session.access_token}; path=/;`; // Store token in cookies
-                    router.push('/app/dashboard');
+                    document.cookie = `access_token=${data.session.access_token}`; // Store token in cookies
+                    router.push('/app').then(() => {
+                        setIsLoading(false);
+                    });
                 }
             })
             .catch(err => {
-                console.log('err:',err);
+                console.log('err:', err);
                 setErros([err.message]);
-            });
+            }).finally(() => {
+                setIsLoading(false);
+            }
+            );
     }
 
     return (
@@ -90,7 +97,12 @@ export default function page() {
                                                 ))}
                                             </div>
                                         )}
-                                        <button type="submit" className="btn btn-primary">Login</button>
+                                        {isLoading ? (
+                                            <button type="submit" disabled className="btn btn-primary">Hang tight...</button>
+                                        ) :
+                                            <button type="submit" className="btn btn-primary">Login</button>
+                                        }
+
                                     </form>
                                 </CardBody>
                             </Card>
