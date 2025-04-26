@@ -6,7 +6,8 @@ export async function middleware(req) {
   const accessToken = accessTokenCookie?.value;
   if (!accessToken) {
     console.log('No Access Token');
-    if (req.nextUrl.pathname === "/login")
+
+    if (req.nextUrl.pathname === "/login" || req.nextUrl.pathname === "/sign-up" || req.nextUrl.pathname === "/sign-up/verify")
       return NextResponse.next();
     return NextResponse.redirect(new URL("/login", req.url));
   }

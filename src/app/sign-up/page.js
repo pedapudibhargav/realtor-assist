@@ -1,11 +1,13 @@
 "use client";
 import React from 'react'
 import { Card, CardBody, Col, Container, Row } from 'react-bootstrap';
+import { useRouter } from "next/navigation";
 
 export default function page() {
   const [errors, setErrors] = React.useState([]);
   const BE_URI = process.env.NEXT_PUBLIC_BE_URI;
-  
+  const router = useRouter();
+
   const validateFormData = (e) => {
     const email = e.target.email.value;
     const password = e.target.password.value;
@@ -35,9 +37,10 @@ export default function page() {
     }
     return true;
   }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    if(!validateFormData(e)) {
+    if (!validateFormData(e)) {
       return;
     }
     setErrors([]);
@@ -46,7 +49,7 @@ export default function page() {
     const firstname = e.target.firstname.value;
     const lastname = e.target.lastname.value;
 
-    fetch(BE_URI+'/api/auth/register', {
+    fetch(BE_URI + '/api/auth/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -58,23 +61,29 @@ export default function page() {
         lastname
       })
     })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
       }
-      return response.json();
-    }
-    )
-    .then(data => {
-      console.log('Success:', data);
-    }
-    )
-    .catch((error) => {
-      console.error('Error:', error);
-      setErrors([error.message]);
-    }
-    );
+      )
+      .then(data => {
+        console.log('Success:', data);
+        router.push('/app');
+      }
+      )
+      .catch((error) => {
+        console.error('Error:', error);
+        setErrors([error.message]);
+      }
+      );
     console.log(email, password, firstname, lastname);
+  }
+
+  const handleBackToLogin = (e) => {
+    e.preventDefault();
+    router.push('/login');
   }
   return (
     <>
@@ -127,8 +136,11 @@ export default function page() {
                         </ul>
                       </div>
                     )}
-                    <button type="submit" className="btn btn-primary">Sing Up</button>
-                  </form> 
+                    <div className="d-grid gap-2">
+                        <button type="submit" className="btn btn-primary" size="lg">Sign Up</button>
+                        <button onClick={handleBackToLogin} className="btn btn-secondary" size="lg">Back to Login</button>
+                    </div>
+                  </form>
                 </CardBody>
               </Card>
             </div>

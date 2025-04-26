@@ -17,11 +17,13 @@ app.use(express.json());
 const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
 const auth = require('./routes/auth');
+const brokerage = require('./routes/brokerage_api');
 
 // Use routes
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 app.use('/api/auth', auth);
+app.use('/api/brokerages', brokerage);
 
 // Start the server
 app.listen(port, () => {

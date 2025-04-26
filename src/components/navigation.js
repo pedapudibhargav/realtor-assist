@@ -2,21 +2,18 @@
 import React from 'react';
 import { Navbar, Container, Nav, NavbarBrand, NavDropdown, NavLink, DropdownItem, DropdownDivider } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
+import GetUserAccessToken from '@/utils/user';
 
 export default function AppNavigation() {
   const BE_URI = process.env.NEXT_PUBLIC_BE_URI;
   const router = useRouter();
 
-  const getCookie = (name) => {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
-  };
+  
 
   const handleLogout = (e) => {
     e.preventDefault();
     console.log('Logging out...');
-    const accessToken = getCookie('access_token'); // Retrieve the access_token from cookies
+    const accessToken = GetUserAccessToken();
     if (!accessToken) {
       console.error('Access token not found in cookies');
       return;
@@ -44,8 +41,18 @@ export default function AppNavigation() {
       <Container>
         <NavbarBrand href="#home">MY APP</NavbarBrand>
         <Nav className="me-auto">
-          <NavLink href="#home">Loops</NavLink>
-          <NavLink href="#features">Tasks</NavLink>
+          <NavLink onClick={() => router.push('/app/transactions')}>Transactions</NavLink>
+          <NavDropdown title="Team" id="team-nav-dropdown" align="end">
+            {/* <DropdownItem href="#action/3.1">Action</DropdownItem>
+            <DropdownItem href="#action/3.2">
+              Another action
+            </DropdownItem>*/}
+            <DropdownItem href="/">Team A</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem>
+              Create New Team
+            </DropdownItem>
+          </NavDropdown>
           <NavLink href="#pricing">Contacts</NavLink>
         </Nav>
         <Nav>

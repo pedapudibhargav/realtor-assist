@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const supabase = require('../utils/supabaseClient');
+const { supabase } = require('../utils/supabaseClient');
 
 
 // Define product-related routes
@@ -57,9 +57,19 @@ router.get('/user', async (req, res) => {
   res.json({ user: data.user });
 });
 
+router.post('/email-verify/confirm', async (req, res) => { 
+  console.log('email-verify/confirm:', req.body);
+  const { access_token } = req.body;
+  if (!access_token) return res.status(401).json({ error: 'No token provided' });
+  const { data, error } = await supabase.auth.getUser(access_token);
+  if (error) return res.status(401).json({ error: error.message });
+
+  res.json(data);
+});
+
 router.post('/logout', async (req, res) => {
   const authHeader = req.headers.authorization;
-  console.log('authHeader:', authHeader);
+  // console.log('authHeader:', authHeader);
   if (!authHeader) return res.status(401).json({ error: 'No token provided' });
   const { error } = await supabase.auth.signOut(authHeader);
   if (error) return res.status(401).json({ error: error.message }); 
