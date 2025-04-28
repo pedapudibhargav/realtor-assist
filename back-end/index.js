@@ -18,12 +18,14 @@ const userRoutes = require('./routes/users');
 const productRoutes = require('./routes/products');
 const auth = require('./routes/auth');
 const brokerage = require('./routes/brokerage_api');
+const transactions = require('./routes/transactions_api');
 
 // Use routes
 app.use('/users', userRoutes);
 app.use('/products', productRoutes);
 app.use('/api/auth', auth);
 app.use('/api/brokerages', brokerage);
+app.use('/api/transactions', transactions);
 
 // Start the server
 app.listen(port, () => {

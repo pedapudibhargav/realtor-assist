@@ -1,6 +1,6 @@
 'use client'
 import { SaveBrokeragesToLocalStorage, SetActiveBrokerage } from '@/services/brokerageService';
-import GetUserAccessToken from '@/utils/user';
+import { GetUserAccessToken } from '@/utils/user';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 import { Card, CardBody, CardHeader, CardText, CardTitle, Col, Container, Row } from 'react-bootstrap';
@@ -87,8 +87,7 @@ export default function Brokarage() {
             <br />
             <br />
             <br />
-            <br />
-            <h2>Your Brokerages</h2>
+            <br />            
             <Row>
                 {brokerages.map((brokerage, keyIn) => (
                     <Col key={keyIn}>

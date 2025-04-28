@@ -51,6 +51,14 @@ const GetActiveBrokerage = () => {
     return null;
 }
 
+const GetActiveBrokerageId = () => {
+    const activeBrokerage = GetActiveBrokerage();
+    if (activeBrokerage) {
+        return activeBrokerage.id;
+    }
+    return null;
+}
+
 // export all the functions
 export {
     CleanUpBrokeragesAPIData,
@@ -58,5 +66,6 @@ export {
     GetBrokeragesFromLocalStorage,
     GetBrokerageById,
     SetActiveBrokerage,
-    GetActiveBrokerage,    
+    GetActiveBrokerage,  
+    GetActiveBrokerageId,  
 }

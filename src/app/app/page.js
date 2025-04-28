@@ -11,9 +11,7 @@ export default function page() {
 
   React.useEffect(() => {
     const brokerage = GetActiveBrokerage();
-    console.log('active brokerage:', brokerage)
     if (brokerage) {
-      console.log('active brokerage found:', brokerage)
       setActiveBrokerage(brokerage)
     } else {      
       console.log('No active brokerage found, redirecting to /app/brokerages');
@@ -29,8 +27,7 @@ export default function page() {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            {JSON.stringify(activeBrokerage)}
-            {/* <h1>Welcome to: {activeBrokerage.name}</h1> */}
+            <h2>Your Brokerages: {activeBrokerage?.name}</h2>
             <p>This is the main page of the app.</p>
           </div>
         </div>

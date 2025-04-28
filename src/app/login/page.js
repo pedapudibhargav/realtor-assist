@@ -30,7 +30,7 @@ export default function page() {
                     if (data.error) {
                         setErros([data.error]);
                     } else {
-                        document.cookie = `access_token=${accessToken}`; // Store token in cookies                    
+                        document.cookie = `access_token=${accessToken};path=/;`; // Store token in cookies                    
                         router.push('/app')
                     }
                 })
@@ -82,7 +82,7 @@ export default function page() {
                     setErros([data.error]);
                 } else {
                     console.log('Login successful:', data, data.session.access_token);
-                    document.cookie = `access_token=${data.session.access_token}`; // Store token in cookies                    
+                    document.cookie = `access_token=${data.session.access_token};path=/;`; // Store token in cookies                    
                     router.push('/app')
                 }
             })

@@ -2,13 +2,13 @@
 import React from 'react';
 import { Navbar, Container, Nav, NavbarBrand, NavDropdown, NavLink, DropdownItem, DropdownDivider } from 'react-bootstrap';
 import { useRouter } from "next/navigation";
-import GetUserAccessToken from '@/utils/user';
+import { GetUserAccessToken } from '@/utils/user';
 
 export default function AppNavigation() {
   const BE_URI = process.env.NEXT_PUBLIC_BE_URI;
   const router = useRouter();
 
-  
+
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -28,7 +28,7 @@ export default function AppNavigation() {
       .then(res => res.json())
       .then(data => {
         console.log('Logout successful:', data);
-        document.cookie = 'access_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;'; // Clear token from cookies
+        document.cookie = 'access_token=; path=/;'; // Clear token from cookies
         // Redirect to login page or show a message 
         router.push('/login');
       }).catch(err => {
@@ -41,18 +41,25 @@ export default function AppNavigation() {
       <Container>
         <NavbarBrand href="#home">MY APP</NavbarBrand>
         <Nav className="me-auto">
-          <NavLink onClick={() => router.push('/app/transactions')}>Transactions</NavLink>
-          <NavDropdown title="Team" id="team-nav-dropdown" align="end">
-            {/* <DropdownItem href="#action/3.1">Action</DropdownItem>
-            <DropdownItem href="#action/3.2">
-              Another action
-            </DropdownItem>*/}
+
+          <NavDropdown title="Brokerages" align="end">
+            <DropdownItem onClick={() => router.push('/app/brokerages')}>View All</DropdownItem>
+            <DropdownDivider />
+            <DropdownItem onClick={() => router.push('/app/brokerages/create')}>
+              Create New Team
+            </DropdownItem>
+          </NavDropdown>
+
+          <NavDropdown title="Teams" id="team-nav-dropdown" align="end">
             <DropdownItem href="/">Team A</DropdownItem>
             <DropdownDivider />
             <DropdownItem>
               Create New Team
             </DropdownItem>
           </NavDropdown>
+
+          <NavLink onClick={() => router.push('/app/transactions')}>Transactions</NavLink>
+
           <NavLink href="#pricing">Contacts</NavLink>
         </Nav>
         <Nav>
