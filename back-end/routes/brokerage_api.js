@@ -43,8 +43,8 @@ router.post('/', async (req, res) => {
         // await on a promise for 500ms
         await new Promise(resolve => setTimeout(resolve, 500));
 
-        // create brokerage_user_role relation in brokerage_user_roles pass user_id, borkerage_id = brokerage[0].id
-        const { data: brokerageUserRole, error: brokerageUserRoleError } = await supabase.from('brokerage_user_roles')
+        // create brokerage_user_role relation in brokerage_contacts pass user_id, borkerage_id = brokerage[0].id
+        const { data: brokerageUserRole, error: brokerageUserRoleError } = await supabase.from('brokerage_contacts')
             .insert({ user_id: userId, brokerage_id: brokerage[0].id, roles: 'admin' }).select();
         if (brokerageUserRoleError) {
             console.error('Error inserting into connection brokerage to the user:', brokerageUserRoleError);
@@ -65,13 +65,13 @@ router.get('/', async (req, res) => {
     console.log('userId:', userId);
     try {
         const brokerRolesData = await supabase
-            .from('brokerage_user_roles')
+            .from('brokerage_contacts')
             .select('roles, user_id, brokerage_id')
             .eq('user_id', userId);
         console.log('brokerRolesData:', brokerRolesData);
 
         const { data: brokeragesWithRoles, error } = await supabase
-            .from('brokerage_user_roles')
+            .from('brokerage_contacts')
             .select('roles, brokerage(id, name)')
             .eq('user_id', userId);
 
@@ -84,7 +84,7 @@ router.get('/', async (req, res) => {
             return res.status(404).json({ message: 'No brokerages found for the user' });
         }
 
-        // The 'data' now contains the joined result, structured as an array of brokerage_user_roles,
+        // The 'data' now contains the joined result, structured as an array of brokerage_contacts,
         // with the corresponding brokerage data nested under the 'brokerage' key.
         res.status(200).json(brokeragesWithRoles);
     } catch (error) {
@@ -114,7 +114,7 @@ router.get('/', async (req, res) => {
 //         const userId = user.user.id;
 
 //         // get all the brokerages for the user
-//         const { data: brokerages_for_user, error: brokerageError } = await supabase.from('brokerage_user_roles')
+//         const { data: brokerages_for_user, error: brokerageError } = await supabase.from('brokerage_contacts')
 //             .select('*, brokerage(*)')
 //             .eq('user_id', userId);
 //         if (brokerageError) {

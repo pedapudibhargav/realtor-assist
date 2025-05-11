@@ -11,48 +11,43 @@ export default function TransactionLayout({ children }) {
     const { transactionId } = useParams();
 
     const navLinks = [
-        { label: 'Overview', route: `/app/transactions/${transactionId}` },
-        { label: 'Property Details', route: `/app/transactions/${transactionId}/property-details` },
-        { label: 'Checklist', route: `/app/transactions/${transactionId}/checklist` },
-        { label: 'Timeline', route: `/app/transactions/${transactionId}/timeline` },
-        { label: 'Commission', route: `/app/transactions/${transactionId}/commission` },
-        { label: 'Parties', route: `/app/transactions/${transactionId}/parties` },
-        { label: 'Messages', route: `/app/transactions/${transactionId}/messages` },
-        { label: 'Documents', route: `/app/transactions/${transactionId}/documents` },
+        { label: 'Overview', route: `/app/transactions/${transactionId}`, iconClass: 'bi bi-house' },
+        { label: 'Property Details', route: `/app/transactions/${transactionId}/property-details`, iconClass: 'bi bi-clipboard' },
+        { label: 'Checklist', route: `/app/transactions/${transactionId}/checklist`, iconClass: 'bi bi-check2-square' },
+        { label: 'Timeline', route: `/app/transactions/${transactionId}/timeline`, iconClass: 'bi bi-hourglass-split' },
+        { label: 'Commission', route: `/app/transactions/${transactionId}/commission`, iconClass: 'bi bi-cash' },
+        { label: 'Parties', route: `/app/transactions/${transactionId}/parties`, iconClass: 'bi bi-people' },
+        { label: 'Messages', route: `/app/transactions/${transactionId}/messages`, iconClass: 'bi bi-envelope' },
+        { label: 'Documents', route: `/app/transactions/${transactionId}/documents`, iconClass: 'bi bi-file-earmark' },
     ];
 
     return (
         <>
-            <AppNavigation />
-            <br />
-            <Container>
-                <Navbar bg="dark" data-bs-theme="dark" className="bg-body-tertiary">
-                    <div className='d-flex flex-grow-1'>
-                        <Button variant="link" onClick={() => router.push('/app/transactions')}>← Back to Transactions</Button>
-                        <div className='flex-grow-1'></div>
-                        <Button variant="link" onClick={() => handleModalShow()}>Activity Log</Button>
-                    </div>
-                </Navbar>
-                <br />
-                <Row>
-                    <Col xs='2'>
+            <Row className="layout-row">
+                <Col xs='2' className="px-0">
+                    <div className='layout-left-nav'>
+                        <div className='text-white h3 mx-3'>AGENT EASE</div>
                         <Nav className="flex-column">
-                            {navLinks.map(({ label, route }) => (
+                            {navLinks.map(({ label, route, iconClass }) => (
                                 <Nav.Link
                                     key={route}
-                                    className={pathname === route ? "text-white" : ''}
+                                    className={pathname === route ? "active" : ''}
                                     onClick={() => router.push(route)}
                                 >
-                                    {label}
+                                    <i className={iconClass}></i>
+                                    <span className="nav-ele-lable">{label}</span>
                                 </Nav.Link>
                             ))}
                         </Nav>
-                    </Col>
-                    <Col xs='10'>
+                    </div>
+                </Col>
+                <Col xs='10'>
+                    <AppNavigation />
+                    <div className="layout-body">
                         {children}
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </Col>
+            </Row>
         </>
     );
 }

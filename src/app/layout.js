@@ -20,6 +20,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable}`} data-bs-theme="dark">
         {children}
       </body>

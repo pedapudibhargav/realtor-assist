@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --dark-blue-bg: #1a1c24;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,7 +14,7 @@
 html,
 body {
   max-width: 100vw;
-  min-height:100vh;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -41,9 +42,87 @@ a {
     color-scheme: dark;
   }
 }
+
 .btn-link {
   text-decoration: none;
 }
+
 .btn-link:hover {
   text-decoration: underline;
+}
+
+.bg-dark-blue {
+  background-color: var(--dark-blue-bg);
+}
+
+.layout-left-nav {
+  min-height: 100vh;
+  height: 100%;
+  background-color: var(--dark-blue-bg);
+  padding-left: 1rem;
+  padding-top: 1.75rem;
+  padding-right: 1rem;
+}
+
+.layout-row>.col-10 {
+  padding-left: 0;
+}
+
+.layout-left-nav .nav-link {
+  display: flex;
+  border-radius: 0px 100px 100px 0px;
+  transition: background-color 0.5s ease, color 0.5s ease, border-left 0.5s ease;
+  border-left: 4px solid transparent;
+}
+
+.layout-left-nav .nav-link:hover {
+  background: #0f1015;
+  border-left: 4px solid var(--bs-primary);
+}
+
+.layout-left-nav .nav-link.active {
+  background: #0f1015;
+  border-left: 4px solid var(--bs-primary);
+}
+
+.layout-left-nav .nav-link.active>.nav-ele-lable {
+  color: #fff;
+  font-weight: 600;
+}
+
+.layout-left-nav .nav-link>i {
+  background: rgba(108, 114, 147, 0.2);
+  margin-right: 0.5rem;
+  font-size: 0.8125rem;
+  line-height: 1;
+  width: 31px;
+  height: 31px;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+}
+
+.nav-ele-lable {
+  color: #6c7293;
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+  vertical-align: middle;
+  padding-top: 7px;
+  padding-left: 5px;
+}
+
+.layout-top-nav {
+  background-color: var(--dark-blue-bg);
+  padding-right: 1.5rem;
+}
+
+.layout-body {
+  padding: 1.5rem;
+}
+
+.form-label {
+  font-size: 0.875rem;
 }

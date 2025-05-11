@@ -19,6 +19,7 @@ const productRoutes = require('./routes/products');
 const auth = require('./routes/auth');
 const brokerage = require('./routes/brokerage_api');
 const transactions = require('./routes/transactions_api');
+const parties = require('./routes/parties_api');
 
 // Use routes
 app.use('/users', userRoutes);
@@ -26,6 +27,7 @@ app.use('/products', productRoutes);
 app.use('/api/auth', auth);
 app.use('/api/brokerages', brokerage);
 app.use('/api/transactions', transactions);
+app.use('/api/brokerages/:brokerage_id/transactions/:transaction_id/parties', parties);
 
 // Start the server
 app.listen(port, () => {

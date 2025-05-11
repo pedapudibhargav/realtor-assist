@@ -48,9 +48,9 @@ async function validateTokenFromReq(req) {
 }
 
 async function IsValidBrokerageUser(brokerageId, userId) {
-  // check in brokerage_user_roles table with user_id and brokerage_id
+  // check in brokerage_contacts table with user_id and brokerage_id
   const { data, error } = await supabase
-      .from('brokerage_user_roles')
+      .from('brokerage_contacts')
       .select('roles, user_id, brokerage_id')
       .eq('user_id', userId)
       .eq('brokerage_id', brokerageId);

@@ -1,0 +1,22 @@
+.user-search-autofill {
+    position: relative;
+    width: 400px;
+}
+.user-search-autofill > ul {
+    position: absolute;
+    z-index: 1;
+    left: 40px;
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+.user-search-autofill > ul > li {
+    cursor: pointer;
+    width: 350px;
+}
+
+
+.transaction-parties-container {
+    min-height: 100vh;
+    padding: 20px; 
+}
