@@ -120,9 +120,15 @@ a {
 }
 
 .layout-body {
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
 .form-label {
   font-size: 0.875rem;
+}
+
+/* input place holders should be 80% opacity and 0.8rem font size */
+input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
 }

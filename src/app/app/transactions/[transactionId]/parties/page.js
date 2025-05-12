@@ -1,7 +1,7 @@
 'use client';
 import { TransactionRolesMap, TransactionTypesMap } from '@/app/utilities/transactions_utils';
-import React, { useState } from 'react';
-import { Button, Card, CardBody, } from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Button, Card, CardBody } from 'react-bootstrap';
 import './parties.css';
 import PartiesAgency from './PartiesAgency';
 import ClientInformation from './ClientInformation';
@@ -10,7 +10,7 @@ import OtherParties from './OtherParties';
 
 const defaultPartiesData = {
   partiesAgency: {
-    dualAgency: true,
+    dualAgency: false,
     agentName: 'John Doe',
     phoneNumber: '123-456-7890',
     emailAddress: 'johndoe@example.com',
@@ -70,6 +70,7 @@ const defaultPartiesData = {
 
 export default function TransactionParties() {
   const [partiesData, setPartiesData] = useState(defaultPartiesData);
+  const [showScrollButton, setShowScrollButton] = useState(false);
 
   const saveDataToDB = (updatedData) => {
     console.log('Saving data to DB:', updatedData);
@@ -107,6 +108,26 @@ export default function TransactionParties() {
     });
   };
 
+  const handleScroll = () => {
+    const isBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight;
+    setShowScrollButton(!isBottom);
+  };
+
+  const checkContentBelowFold = () => {
+    const isContentBelowFold = document.body.offsetHeight > window.innerHeight;
+    setShowScrollButton(isContentBelowFold);
+  };
+
+  const scrollToNextSection = () => {
+    window.scrollBy({ top: window.innerHeight / 2, behavior: 'smooth' });
+  };
+
+  useEffect(() => {
+    checkContentBelowFold();
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <div className='transaction-parties-container'>
       <div className="row">
@@ -141,6 +162,17 @@ export default function TransactionParties() {
           />
         </div>
       </div>
+
+      {showScrollButton && (
+        <Button
+          variant="success"
+          className="scroll-down-button"
+          onClick={scrollToNextSection}
+          style={{ position: 'fixed', bottom: '40px', right: '40px', zIndex: 1000, borderRadius: '40%', padding: '1rem 1rem' }}
+        >
+          <i className="bi bi-chevron-double-down"></i>
+        </Button>
+      )}
     </div>
   );
 }

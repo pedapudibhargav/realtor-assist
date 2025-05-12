@@ -1,0 +1,8 @@
+.file-upload-container > .progress {
+    width: 50%;
+    margin: 1.5rem 0;
+}
+.file-upload-table th:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

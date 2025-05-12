@@ -17,7 +17,6 @@ export default function TransactionLayout({ children }) {
         { label: 'Timeline', route: `/app/transactions/${transactionId}/timeline`, iconClass: 'bi bi-hourglass-split' },
         { label: 'Commission', route: `/app/transactions/${transactionId}/commission`, iconClass: 'bi bi-cash' },
         { label: 'Parties', route: `/app/transactions/${transactionId}/parties`, iconClass: 'bi bi-people' },
-        { label: 'Messages', route: `/app/transactions/${transactionId}/messages`, iconClass: 'bi bi-envelope' },
         { label: 'Documents', route: `/app/transactions/${transactionId}/documents`, iconClass: 'bi bi-file-earmark' },
     ];
 

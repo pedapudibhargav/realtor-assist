@@ -37,11 +37,9 @@ export default function AppNavigation() {
   }
 
   return (
-    <Navbar bg="primary" data-bs-theme="dark">
+    <Navbar className="layout-top-nav">
       <Container>
-        <NavbarBrand href="#home">MY APP</NavbarBrand>
         <Nav className="me-auto">
-
           <NavDropdown title="Brokerages" align="end">
             <DropdownItem onClick={() => router.push('/app/brokerages')}>View All</DropdownItem>
             <DropdownDivider />
@@ -64,11 +62,6 @@ export default function AppNavigation() {
         </Nav>
         <Nav>
           <NavDropdown title="Settings" id="basic-nav-dropdown" align="end">
-            {/* <DropdownItem href="#action/3.1">Action</DropdownItem>
-            <DropdownItem href="#action/3.2">
-              Another action
-            </DropdownItem>
-            <DropdownItem href="#action/3.3">Something</DropdownItem> */}
             <DropdownDivider />
             <DropdownItem onClick={(e) => handleLogout(e)}>
               Log Out
