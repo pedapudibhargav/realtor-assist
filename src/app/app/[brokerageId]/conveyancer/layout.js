@@ -2,27 +2,27 @@
 import AppNavigation from '@/components/navigation';
 import { useRouter, usePathname, useParams } from 'next/navigation';
 import React from 'react';
-import { Button, Col, Container, Nav, Navbar, Row } from 'react-bootstrap';
-import './transaction_style.css';
+import { Col, Nav, Row } from 'react-bootstrap';
+import './conveyancer.css';
 
-export default function TransactionLayout({ children }) {
+export default function ConveyancerLayout({ children }) {
     const router = useRouter();
     const pathname = usePathname();
-    const { transactionId } = useParams();
+    const { brokerageId } = useParams();
 
     const navLinks = [
-        { label: 'Overview', route: `/app/transactions/${transactionId}`, iconClass: 'bi bi-house' },
-        { label: 'Property Details', route: `/app/transactions/${transactionId}/property-details`, iconClass: 'bi bi-clipboard' },
-        { label: 'Checklist', route: `/app/transactions/${transactionId}/checklist`, iconClass: 'bi bi-check2-square' },
-        { label: 'Timeline', route: `/app/transactions/${transactionId}/timeline`, iconClass: 'bi bi-hourglass-split' },
-        { label: 'Commission', route: `/app/transactions/${transactionId}/commission`, iconClass: 'bi bi-cash' },
-        { label: 'Parties', route: `/app/transactions/${transactionId}/parties`, iconClass: 'bi bi-people' },
-        { label: 'Documents', route: `/app/transactions/${transactionId}/documents`, iconClass: 'bi bi-file-earmark' },
+        { label: 'Dashboard', route: `/app/${brokerageId}/conveyancer/dashboard`, iconClass: 'bi bi-speedometer2' },
+        { label: 'Document Queue', route: `/app/${brokerageId}/conveyancer/document-queue`, iconClass: 'bi bi-inbox' },
+        { label: 'Approvals', route: `/app/${brokerageId}/conveyancer/approvals`, iconClass: 'bi bi-patch-check' },
+        { label: 'Transactions', route: `/app/${brokerageId}/conveyancer/transactions`, iconClass: 'bi bi-files' },
+        { label: 'Agents', route: `/app/${brokerageId}/conveyancer/agents`, iconClass: 'bi bi-person-badge' },
+        { label: 'Templates', route: `/app/${brokerageId}/conveyancer/templates`, iconClass: 'bi bi-file-earmark-text' },
+        { label: 'Reports', route: `/app/${brokerageId}/conveyancer/reports`, iconClass: 'bi bi-bar-chart' },
     ];
 
     return (
         <>
-            <Row className="layout-row agent-layout">
+            <Row className="layout-row conveyancer-layout">
                 <Col xs='2' className="px-0">
                     <div className='layout-left-nav'>
                         <div className='text-white h3 mx-3'>AGENT EASE</div>

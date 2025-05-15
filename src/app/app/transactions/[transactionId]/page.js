@@ -1,5 +1,4 @@
 'use client';
-import { TransactionRolesMap, TransactionTypesMap } from '@/app/utilities/transactions_utils';
 import { GetTransactionById } from '@/services/transactionService';
 import { useParams, useRouter } from 'next/navigation';
 import React, { useEffect } from 'react';
