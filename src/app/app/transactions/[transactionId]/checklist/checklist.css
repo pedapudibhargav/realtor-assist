@@ -1,0 +1,51 @@
+.checklist-search {
+    height: 40px;
+    width: 100%;
+  }
+  
+  .checklist-dropdown {
+    height: 40px;
+    max-width: 180px;
+    flex: 1 1 auto;
+  }
+  
+  .checklist-button {
+    height: 40px;
+    padding: 0 16px;
+    flex: 0 0 auto;
+  }
+  
+  .checklist-record {
+    padding: 16px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .checklist-record:last-child {
+    border-bottom: none;
+  }
+  
+  .highlighted {
+    background-color: #e8f0fe;
+  }
+  
+  .checklist-btn {
+    height: 25px;
+    padding: 0 10px;
+    font-size: 12px;
+    line-height: 1;
+  }
+
+  .checklist-comment {
+    font-size: 13px;
+  }
+  
+/* Documents */
+  .document-preview {
+    border-radius: 6px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.08);
+  }
+  .file-preview-box {
+    height: 180px;
+    text-align: center;
+    font-size: 14px;
+  }
