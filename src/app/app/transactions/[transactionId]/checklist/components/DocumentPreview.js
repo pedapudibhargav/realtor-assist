@@ -15,7 +15,7 @@ export default function DocumentPreview({ document, onDownload, onReplace, onSub
       </div>
 
       <div className="card-body">
-        <div className="file-preview-box mb-3 d-flex align-items-center justify-content-center text-muted border bg-light">
+        <div className="file-preview-box mb-3 d-flex align-items-center justify-content-center text-black border bg-light">
           {document.name}
         </div>
 

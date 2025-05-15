@@ -1,22 +1,39 @@
 'use client';
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import ChecklistDetails from './components/ChecklistDetails';
 import ChecklistFilters from './components/ChecklistFilters';
 import ChecklistCategoryList from './components/ChecklistCategoryList';
 import { groupedData } from './constants/sampleData';
 import DocumentPreview from './components/DocumentPreview';
+
+const dummyDoc = {
+    "id": "1",
+    "name": "Purchase Agreement",
+    "file": "Home Inspection Report.pdf",
+    "uploadedBy": "John Agent",
+    "uploadedAt": "Apr 27, 2025 2:30 PM",
+    "required": true,
+    "uploadedDate": "Apr 22, 2025",
+    "status": "Approved",
+    "comments": "Has 2 comments from conveyancing",
+    "view": true,
+    "checked": true
+}
 export default function ChecklistPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [status, setStatus] = useState('');
   const [category, setCategory] = useState('');
-  const [selectedDocument, setSelectedDocument] = useState(null); 
+  const [selectedDocument, setSelectedDocument] = useState(dummyDoc); 
 
   // Handlers
   const handleUpload = (doc) => alert(`Upload: ${doc.name}`);
   const handleAssign = (doc) => alert(`Assign: ${doc.name}`);
   const handleReupload = (doc) => alert(`Re-upload: ${doc.name}`);
-  const handleView = (doc) => setSelectedDocument(doc); 
+  const handleView = (doc) => {
+    console.log('doc', doc)
+    setSelectedDocument(doc); 
+  }
 
   const handleDownload = () => alert(`Download: ${selectedDocument?.name}`);
   const handleReplace = () => alert(`Replace: ${selectedDocument?.name}`);
