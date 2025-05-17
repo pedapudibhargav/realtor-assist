@@ -69,22 +69,26 @@ export default function Dashboard() {
       </Card>
 
       <Row className="g-4">
-        <Col md={6}>
-          <div className="bg-dark text-white shadow-sm rounded p-3">
-            <h6 className="fw-semibold mb-3">Recent Activity</h6>
-            <RecentActivityItem icon="bi-check-circle text-success" text="You approved a Title Deed document" time="20 minutes ago" address="321 Pine Street" />
-            <RecentActivityItem icon="bi-chat-left-text text-primary" text="You added a comment on Mortgage Document" time="1 hour ago" address="789 Birch Avenue" />
-            <RecentActivityItem icon="bi-x-circle text-danger" text="You rejected a Property Disclosure document" time="3 hours ago" address="567 Cedar Lane" />
-            <RecentActivityItem icon="bi-upload text-info" text="John Davis uploaded a new Sale Contract" time="Yesterday" address="123 Main Street" />
-          </div>
+        <Col md={12}>
+          <Card>
+            <Card.Header className="fw-bold d-flex justify-content-between">Recent Activity</Card.Header>
+            <Card.Body className="p-4">
+              <RecentActivityItem icon="bi-check-circle text-success" text="You approved a Title Deed document" time="20 minutes ago" address="321 Pine Street" />
+              <RecentActivityItem icon="bi-chat-left-text text-primary" text="You added a comment on Mortgage Document" time="1 hour ago" address="789 Birch Avenue" />
+              <RecentActivityItem icon="bi-x-circle text-danger" text="You rejected a Property Disclosure document" time="3 hours ago" address="567 Cedar Lane" />
+              <RecentActivityItem icon="bi-upload text-info" text="John Davis uploaded a new Sale Contract" time="Yesterday" address="123 Main Street" />
+            </Card.Body>
+          </Card>
         </Col>
-        <Col md={6}>
-          <div className="bg-dark text-white shadow-sm rounded p-3">
-            <h6 className="fw-semibold mb-3">Upcoming Deadlines</h6>
-            <DeadlineItem text="Closing Deadline for 123 Main Street" date="Tomorrow, 3:00 PM" />
-            <DeadlineItem text="Document Submission for 457 Oakwood Drive" date="May 5, 2025" />
-            <DeadlineItem text="Mortgage Approval for 789 Birch Avenue" date="May 10, 2025" />
-          </div>
+        <Col md={12}>
+          <Card className="mb-4">
+            <Card.Header className="fw-bold d-flex justify-content-between">Upcoming Deadlines</Card.Header>
+            <Card.Body className="p-4">
+              <DeadlineItem text="Closing Deadline for 123 Main Street" date="Tomorrow, 3:00 PM" />
+              <DeadlineItem text="Document Submission for 457 Oakwood Drive" date="May 5, 2025" />
+              <DeadlineItem text="Mortgage Approval for 789 Birch Avenue" date="May 10, 2025" />
+            </Card.Body>
+          </Card>
         </Col>
       </Row>
     </div>
