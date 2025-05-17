@@ -31,7 +31,7 @@ export default function Dashboard() {
 
   return (
     <div fluid >
-      <h4 className="fw-bold mb-4">Document Review Dashboard</h4>
+      <h4 className="fw-bold text-white mb-4">Document Review Dashboard</h4>
 
       <Row className="g-3 mb-4">
         <Col md={6}><StatsCard title="Documents Pending Review" value="42" note="↑ 12% from last week" noteColor="text-success" /></Col>

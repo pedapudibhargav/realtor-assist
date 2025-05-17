@@ -17,7 +17,7 @@ export default function FilterBar({
     <Card className="bg-dark text-white  border-0 shadow-sm mb-4">
       <CardBody>
         <Row className="align-items-center flex-wrap gap-3">
-          <Col md="auto">
+        <Col md="auto" className='d-flex gap-2'>
             <div className="fw-semibold">Status:</div>
             <Form.Select
               value={status}
@@ -32,7 +32,7 @@ export default function FilterBar({
             </Form.Select>
           </Col>
 
-          <Col md="auto">
+          <Col md="auto" className='d-flex gap-2'>
             <div className="fw-semibold">Document Type:</div>
             <Form.Select
               value={type}
@@ -46,7 +46,7 @@ export default function FilterBar({
             </Form.Select>
           </Col>
 
-          <Col md="auto">
+          <Col md="auto" className='d-flex gap-2'>
             <div className="fw-semibold">Priority:</div>
             <Form.Select
               value={priority}
