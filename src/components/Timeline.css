@@ -1,0 +1,33 @@
+.timeline-list {
+  margin: 0;
+  padding: 0;
+}
+.timeline-item {
+  position: relative;
+}
+.timeline-dot-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 18px;
+  margin-right: 16px;
+}
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bs-primary, #0d6efd);
+  z-index: 1;
+  margin: 0;
+}
+.timeline-line {
+  width: 2px;
+  flex: 1 1 0;
+  background: var(--bs-primary, #0d6efd);
+  min-height: 8px;
+  margin: 0 auto;
+  opacity: 0.7;
+}
+.timeline-line.invisible {
+  background: transparent;
+}

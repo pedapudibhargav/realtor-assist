@@ -46,7 +46,7 @@ export default function AppNavigation() {
               Create New Team
             </DropdownItem>
           </NavDropdown> */}
-{/* 
+          {/* 
           <NavDropdown title="Teams" id="team-nav-dropdown" align="end">
             <DropdownItem href="/">Team A</DropdownItem>
             <DropdownDivider />
@@ -55,19 +55,36 @@ export default function AppNavigation() {
             </DropdownItem>
           </NavDropdown> */}
 
-          <NavLink 
-            onClick={() => router.push('/app/transactions/578febab-5484-49e3-bff1-8951c04c10c7')}
-            className={pathname.startsWith('/app/transactions') ? 'active' : ''}
-          >
-            Transactions
-          </NavLink>
-          <NavLink 
-            onClick={() => router.push('/app/123/conveyancer/dashboard')}
+          <NavLink
+            onClick={() => router.push('/123/agent')}
+            className={pathname.includes('/agent') ? 'active' : ''}
+          >Agent</NavLink>
+          <NavLink
+            onClick={() => router.push('/123/conveyancer/dashboard')}
             className={pathname.includes('/conveyancer') ? 'active' : ''}
           >
             Conveyancer
           </NavLink>
-         
+          <NavLink
+            onClick={() => router.push('/123/admin')}
+            className={pathname.includes('/admin') ? 'active' : ''}
+          >
+            Admin
+          </NavLink>
+          <NavLink
+            onClick={() => router.push('/123/transactions/578febab-5484-49e3-bff1-8951c04c10c7')}
+            className={pathname.includes('/transactions/578febab-5484-49e3-bff1-8951c04c10c7') ? 'active' : ''}
+          >
+            Transaction
+          </NavLink>
+          <NavLink
+            onClick={() => router.push('/123/transactions')}
+            className={pathname.endsWith('/transactions') ? 'active' : ''}
+          >
+            Transactions
+          </NavLink>
+
+
         </Nav>
         <Nav>
           <NavDropdown title="Settings" id="basic-nav-dropdown" align="end">
