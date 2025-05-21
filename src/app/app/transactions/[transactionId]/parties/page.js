@@ -165,7 +165,7 @@ export default function TransactionParties() {
 
       {showScrollButton && (
         <Button
-          variant="success"
+          variant="primary"
           className="scroll-down-button"
           onClick={scrollToNextSection}
           style={{ position: 'fixed', bottom: '40px', right: '40px', zIndex: 1000, borderRadius: '40%', padding: '1rem 1rem' }}

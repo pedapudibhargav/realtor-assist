@@ -1,14 +1,13 @@
 'use client'
 import React from 'react';
 import { Navbar, Container, Nav, NavbarBrand, NavDropdown, NavLink, DropdownItem, DropdownDivider } from 'react-bootstrap';
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { GetUserAccessToken } from '@/utils/user';
 
 export default function AppNavigation() {
   const BE_URI = process.env.NEXT_PUBLIC_BE_URI;
   const router = useRouter();
-
-
+  const pathname = usePathname();
 
   const handleLogout = (e) => {
     e.preventDefault();
@@ -37,28 +36,38 @@ export default function AppNavigation() {
   }
 
   return (
-    <Navbar className="layout-top-nav">
+    <Navbar className="layout-top-nav bg-primary" data-bs-theme="dark">
       <Container>
         <Nav className="me-auto">
-          <NavDropdown title="Brokerages" align="end">
+          {/* <NavDropdown title="Brokerages" align="end">
             <DropdownItem onClick={() => router.push('/app/brokerages')}>View All</DropdownItem>
             <DropdownDivider />
             <DropdownItem onClick={() => router.push('/app/brokerages/create')}>
               Create New Team
             </DropdownItem>
-          </NavDropdown>
-
+          </NavDropdown> */}
+{/* 
           <NavDropdown title="Teams" id="team-nav-dropdown" align="end">
             <DropdownItem href="/">Team A</DropdownItem>
             <DropdownDivider />
             <DropdownItem>
               Create New Team
             </DropdownItem>
-          </NavDropdown>
+          </NavDropdown> */}
 
-          <NavLink onClick={() => router.push('/app/transactions')}>Transactions</NavLink>
-
-          <NavLink href="#pricing">Contacts</NavLink>
+          <NavLink 
+            onClick={() => router.push('/app/transactions/578febab-5484-49e3-bff1-8951c04c10c7')}
+            className={pathname.startsWith('/app/transactions') ? 'active' : ''}
+          >
+            Transactions
+          </NavLink>
+          <NavLink 
+            onClick={() => router.push('/app/123/conveyancer/dashboard')}
+            className={pathname.includes('/conveyancer') ? 'active' : ''}
+          >
+            Conveyancer
+          </NavLink>
+         
         </Nav>
         <Nav>
           <NavDropdown title="Settings" id="basic-nav-dropdown" align="end">

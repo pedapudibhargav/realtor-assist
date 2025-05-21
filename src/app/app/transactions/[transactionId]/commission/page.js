@@ -191,7 +191,7 @@ export default function CommissionPage() {
             <div className="row">
                 <div className="col">
                     <h4>Real Estate Commission</h4>
-                    <Card className="bg-dark text-white">
+                    <Card>
                         <CardBody>
                             <Form onSubmit={formSubmissionHandler}>
                                 {errors.length > 0 && (
@@ -207,13 +207,13 @@ export default function CommissionPage() {
                                     <p>Pick your commision type:</p>
                                     <ButtonGroup>
                                         <Button
-                                            variant={commisionDetails.commissionType === "flat" ? "primary" : "secondary"}
+                                            variant={commisionDetails.commissionType === "flat" ? "primary" : "outline-primary"}
                                             onClick={() => handleTabSelect("flat")}
                                         >
                                             Flat Rate Commission
                                         </Button>
                                         <Button
-                                            variant={commisionDetails.commissionType === "tiered" ? "primary" : "secondary"}
+                                            variant={commisionDetails.commissionType === "tiered" ? "primary" : "outline-primary"}
                                             onClick={() => handleTabSelect("tiered")}
                                         >
                                             Tiered Based Commission

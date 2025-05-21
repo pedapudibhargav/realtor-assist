@@ -12,7 +12,7 @@ export default function ChecklistFilters({
   onBulkUpload,
 }) {
   return (
-    <Card className="bg-dark text-white border-dark mb-4">
+    <Card className="mb-4">
       <CardBody>
         <Row className="align-items-center">
           {/* Left Column: Search Input */}

@@ -25,7 +25,8 @@ export default function TransactionLayout({ children }) {
             <Row className="layout-row agent-layout">
                 <Col xs='2' className="px-0">
                     <div className='layout-left-nav'>
-                        <div className='text-white h3 mx-3'>AGENT EASE</div>
+                        <div className='h3 mx-3'>AGENT EASE</div>
+                        <hr />
                         <Nav className="flex-column">
                             {navLinks.map(({ label, route, iconClass }) => (
                                 <Nav.Link

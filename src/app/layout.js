@@ -1,6 +1,7 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./globals.css";
+import "./global.scss";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +24,7 @@ export default function RootLayout({ children }) {
       <head>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable}`} data-bs-theme="dark">
+      <body className={`${geistSans.variable} ${geistMono.variable}`} >
         {children}
       </body>
     </html>

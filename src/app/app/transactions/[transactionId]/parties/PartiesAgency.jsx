@@ -48,7 +48,7 @@ export default function PartiesAgency({ data, onChange }) {
 
   return (
     <>
-      <Card className="bg-dark text-white border-dark">
+      <Card>
         <CardHeader className="d-flex justify-content-between align-items-center">
           <h5>Agency Information</h5>
         </CardHeader>
@@ -67,7 +67,7 @@ export default function PartiesAgency({ data, onChange }) {
                 <Row>
                   <Col md={6}>
                     <Form.Group controlId="agentName" className="mb-3">
-                      <Form.Label>Agent Name</Form.Label>
+                      <Form.Label>Agent Name (Other Agent's info)</Form.Label>
                       <Form.Control
                         type="text"
                         placeholder="Enter agent name"
@@ -131,7 +131,7 @@ export default function PartiesAgency({ data, onChange }) {
                 ))}
               </Alert>
             )}
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="success">
               Submit
             </Button>
           </Form>

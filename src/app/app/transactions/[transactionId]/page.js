@@ -38,7 +38,7 @@ export default function Page() {
         <div className="container mt-4">
             <div className="row mb-4">
                 <div className="col-12">
-                    <Card className="bg-dark text-white">
+                    <Card>
                         <CardBody>
                             <h3>Transaction Title</h3>
                             <p>Transaction #TR-2025-1042</p>

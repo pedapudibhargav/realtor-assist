@@ -62,7 +62,7 @@ export default function LegalRepresentation({ data, onChange }) {
     };
 
     return (
-        <Card className="bg-dark text-white border-dark">
+        <Card>
             <CardHeader>
                 <h5>Legal Representation</h5>
             </CardHeader>
@@ -208,7 +208,7 @@ export default function LegalRepresentation({ data, onChange }) {
                             ))}
                         </Alert>
                     )}
-                    <Button type="submit" variant="primary">
+                    <Button type="submit" variant="success">
                         Submit
                     </Button>
                 </Form>

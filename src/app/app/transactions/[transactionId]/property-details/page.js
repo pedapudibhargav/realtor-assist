@@ -105,7 +105,7 @@ export default function PropertyDetails() {
         <>
             <div className="row">
                 <div className="col">
-                    <Card className="bg-dark text-white border-dark">
+                    <Card>
                         <CardBody>
                             <div className="input-group mb-3">
                                 <input

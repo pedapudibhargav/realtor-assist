@@ -3,7 +3,7 @@ import { Button, Card, CardBody, ProgressBar,Badge  } from 'react-bootstrap';
 
 export default function ChecklistDetails() {
   return (
-    <Card className="bg-dark text-white border-dark mb-4">
+    <Card className="mb-4">
     <CardBody className='row align-items-center'>
         <div className="col-12 col-md-6">
             <h4>123 Main Street, Anytown CA 95123</h4>

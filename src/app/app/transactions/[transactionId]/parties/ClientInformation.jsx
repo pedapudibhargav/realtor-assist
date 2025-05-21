@@ -38,7 +38,7 @@ export default function ClientInformation({ data, onChange }) {
     };
 
     return (
-        <Card className="bg-dark text-white border-dark">
+        <Card>
             <CardHeader>
                 <h5>Client Information</h5>
             </CardHeader>
@@ -172,7 +172,7 @@ export default function ClientInformation({ data, onChange }) {
                             ))}
                         </Alert>
                     )}
-                    <Button type="submit" variant="primary">
+                    <Button type="submit" variant="success">
                         Submit
                     </Button>
                 </Form>

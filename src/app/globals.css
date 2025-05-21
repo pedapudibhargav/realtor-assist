@@ -1,11 +1,12 @@
 :root {
-  --background: #0a0a0a;
+  --background: #ebf0f6;
   --foreground: #171717;
   --dark-blue-bg: #1a1c24;
   --purple: #8f5fe8;
+  --bg-primary: #fff;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -38,12 +39,6 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-}
-
 .btn-link {
   text-decoration: none;
 }
@@ -56,15 +51,6 @@ a {
   background-color: var(--dark-blue-bg);
 }
 
-.layout-left-nav {
-  min-height: 100vh;
-  height: 100%;
-  background-color: var(--dark-blue-bg);
-  padding-left: 1rem;
-  padding-top: 1.75rem;
-  padding-right: 1rem;
-}
-
 .layout-row>.col-10 {
   padding-left: 0;
 }
@@ -72,8 +58,17 @@ a {
 .layout-left-nav .nav-link {
   display: flex;
   border-radius: 0px 100px 100px 0px;
-  transition: background-color 0.5s ease, color 0.5s ease, border-left 0.5s ease;
+  transition: background-color 0.2s ease, color 0.2s ease, border-left 0.2s ease;
   border-left: 4px solid transparent;
+}
+
+.layout-left-nav {
+  min-height: 100vh;
+  height: 100%;
+  background-color: var(--bg-primary);
+  padding-left: 12px;
+  padding-top: 1.75rem;
+  padding-right: 1rem;
 }
 
 .layout-left-nav .nav-link:hover {
@@ -84,6 +79,13 @@ a {
 .layout-left-nav .nav-link.active {
   background: #0f1015;
   border-left: 4px solid var(--bs-primary);
+}
+
+.layout-left-nav .nav-link:hover>i {
+  color: rgba(255, 255, 255, 0.8);
+}
+.layout-left-nav .nav-link.active > i {
+  color: rgba(255, 255, 255, 1);
 }
 
 .layout-left-nav .nav-link.active>.nav-ele-lable {
@@ -102,7 +104,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff;
+  color: #000;
 }
 
 .nav-ele-lable {
@@ -116,12 +118,26 @@ a {
 }
 
 .layout-top-nav {
-  background-color: var(--dark-blue-bg);
   padding-right: 1.5rem;
 }
 
 .layout-body {
   padding: 2rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 10px 13px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--bs-gray-700);
+  appearance: none;
+  background-color: var(--bs-body-bg);
+  background-clip: padding-box;
+  border: 1px solid var(--bs-gray-300);
+  border-radius: .475rem;
 }
 
 .form-label {

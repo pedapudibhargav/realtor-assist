@@ -116,7 +116,7 @@ export default function DocumentsPage() {
             <div className="row">
                 <div className="col">
                     <h4>Documents</h4>
-                    <Card className="bg-dark text-white">
+                    <Card>
                         <CardBody>
                             {alertQueue.length > 0 && <Alert variant="warning" onClose={dismissAlert} dismissible>{alertQueue[0]}</Alert>}
                             <div
@@ -139,12 +139,12 @@ export default function DocumentsPage() {
                             </div>
                         </CardBody>
                     </Card>
-                    <Table striped bordered variant="dark" className="mt-3 file-upload-table">
+                    <Table striped bordered className="mt-3 file-upload-table">
                         <thead>
                             <tr>
                                 <th><input type="checkbox" /></th>
                                 <th onClick={() => handleSort("name")}>File Name {getSortIcon("name")}</th>
-                                <th>Checklist Time</th>
+                                <th>Assigned Checklist</th>
                                 <th onClick={() => handleSort("size")}>File Size {getSortIcon("size")}</th>
                                 <th onClick={() => handleSort("uploadedAt")}>Date Uploaded {getSortIcon("uploadedAt")}</th>
                             </tr>

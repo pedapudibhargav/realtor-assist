@@ -14,7 +14,7 @@ export default function FilterBar({
   currentView
 }) {
   return (
-    <Card className="bg-dark text-white  border-0 shadow-sm mb-4">
+    <Card className="border-0 shadow-sm mb-4">
       <CardBody>
         <Row className="align-items-center flex-wrap gap-3">
         <Col md="auto" className='d-flex gap-2'>

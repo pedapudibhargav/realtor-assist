@@ -47,7 +47,7 @@ export default function OtherParties({ data, onChange }) {
     };
 
     return (
-        <Card className="bg-dark text-white border-dark">
+        <Card>
             <CardHeader>
                 <h5>Other Parties</h5>
             </CardHeader>
