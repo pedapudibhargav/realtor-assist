@@ -11,13 +11,13 @@ export default function ConveyancerLayout({ children }) {
     const { brokerageId } = useParams();
 
     const navLinks = [
-        { label: 'Dashboard', route: `/app/${brokerageId}/conveyancer/dashboard`, iconClass: 'bi bi-speedometer2' },
-        { label: 'Document Queue', route: `/app/${brokerageId}/conveyancer/document-queue`, iconClass: 'bi bi-inbox' },
-        { label: 'Approvals', route: `/app/${brokerageId}/conveyancer/approvals`, iconClass: 'bi bi-patch-check' },
-        { label: 'Transactions', route: `/app/${brokerageId}/conveyancer/transactions`, iconClass: 'bi bi-files' },
-        { label: 'Agents', route: `/app/${brokerageId}/conveyancer/agents`, iconClass: 'bi bi-person-badge' },
-        { label: 'Templates', route: `/app/${brokerageId}/conveyancer/templates`, iconClass: 'bi bi-file-earmark-text' },
-        { label: 'Reports', route: `/app/${brokerageId}/conveyancer/reports`, iconClass: 'bi bi-bar-chart' },
+        { label: 'Dashboard', route: `/${brokerageId}/conveyancer/dashboard`, iconClass: 'bi bi-speedometer2' },
+        { label: 'Document Queue', route: `/${brokerageId}/conveyancer/document-queue`, iconClass: 'bi bi-inbox' },
+        { label: 'Approvals', route: `/${brokerageId}/conveyancer/approvals`, iconClass: 'bi bi-patch-check' },
+        { label: 'Transactions', route: `/${brokerageId}/conveyancer/transactions`, iconClass: 'bi bi-files' },
+        { label: 'Agents', route: `/${brokerageId}/conveyancer/agents`, iconClass: 'bi bi-person-badge' },
+        { label: 'Templates', route: `/${brokerageId}/conveyancer/templates`, iconClass: 'bi bi-file-earmark-text' },
+        { label: 'Reports', route: `/${brokerageId}/conveyancer/reports`, iconClass: 'bi bi-bar-chart' },
     ];
 
     return (
